@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div class=a-page>
+            <div class=nav-bar>
+                <div class=nav-belt>
+                    <div class=nav-left>
+                        <img src="images/logo/Abercrombie-and-Fitch.png" alt="Display Error">
+                    </div>
+                    <div class=nav-fill>
+                        <form action="gethint.php">
+	               		
+	                        <input type="search" id="search-bar" name="search-bar" placeholder="Search..." onkeyup="showHint(this.value)">
+	                        <button type="submit"><i class="fa fa-search"></i></button>
+                            <p id="search-result"></p>
+
+                        </form>
+                    </div>
+                    <div class=nav-right >
+                        <div class="nav-cart-count-container">
+                            <div class="cart">
+                                    <a href="cart.html">
+                                    <i class="fa fa-shopping-bag" aria-hidden="true" name="basket">Cart <span>0</span></i>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class=nav-main>
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="index.html">Home</a>
+                        </div>
+                    </div>
+
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="about.html">About</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-fill active-nav-link">
+                        <div class=nav-link-wrapper>
+                            <a href="index2.html">Products</a>
+                        </div>
+                    </div>
+
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="contact-us.html">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="login.html">Log In</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class=headline-wrapper>
+                <div class="product-items-wrapper">
+                    <div class="product-item-wrapper image-blur">
+                        <div class="product-img-background" style="background-image:url(images/jacket.jpeg)"></div>
+                        <div class="img-text-wrapper">
+                            <a href="index.html">Shop top</a>
+                        </div>
+                    </div>
+            
+                    <div class="product-item-wrapper image-blur">
+                        <div class="product-img-background" style="background-image:url(images/bottom.jpeg)"></div>
+                        <div class="img-text-wrapper">
+                            <a href="index.html">Shop bottom</a>
+                        </div>
+                    </div>
+                
+                    <div class="product-item-wrapper">
+                        <div class="product-img-background" style="background-image:url(images/hat.jpeg)"></div>
+                        <div class="img-text-wrapper">
+                            <a href="index.html" >Shop accessories</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class=pageContent>
+                <div class=product-img-container>
+                    <img class="pic1" id="pic1" src="images/facemask.jpg" alt="Display Error" onclick = "toTop('pic1')"/>
+                    <img class="pic2" id="pic2" src="images/2ndMask.jpeg" alt="Display Error" onclick = "toTop('pic2')"/>
+                </div>
+                <div class=product-info-container>
+                    <div class=product-name>
+                        <h3>Face Masks</h3>
+                        <h4 id="shop-item-price">CAD $16</h4>
+                        <h5>Details & Materials</h5>
+                    </div>
+                    <div class=product-descriptor>
+                        <p>Made from 100% cotton</p>
+                        <p>Comfortable elastic ear loops with a slot for filters</p>
+                        <p>Non-medical mask & washable</p>
+                        <p>Pack of 6</p>
+                    </div>
+                    <div class=product-size id=product-size style="margin-left: 20%;font-size:small;
+                        text-align: left;margin-right: 5px;"> 
+                        <label>Size</label>
+                            <select name="size-btn" autocomplete="on" id="size-btn" class="size-btn" onchange="selectColor(this.value)">
+                                <option></option>
+                                <option value="S"> S</option>
+                                <option value="L"> L</option>
+                            </select>
+                    </div>
+                    <div class="color-result" id="color-result">
+                        <div class = "colors"  id = "colorlist"> Colors available: 
+                            <select id = "color-select">
+                            </select>
+ 
+                        </div>    
+                    </div>
+                    <div class=product-atb-container>
+                        <div class=quantity-selection>
+                            <label>Qty</label>
+                            <select name="quantity" autocomplete="off" id="quantity" class=quantity-selection-dropdown>
+                                <option value="1"> 1</option>
+                                <option value="2"> 2</option>
+                                <option value="3"> 3</option>
+                                <option value="4"> 4</option>
+                                <option value="5"> 5</option>
+                            </select>
+                        </div>
+                        
+                        <button class="atb-button" type="button">
+                            <span> Add to bag </span>
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-review">
+                <h5>Reviews and Rating</h5>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+            </div>
+            <div class="product-recommendation">
+                <div class="product-recommendation-header">
+                    <p>Similar Products</p>
+                </div>
+                <div class=product-recommendation-imgs-wrapper>
+                    <div class=product-recommendation-img-wrapper>
+                        <div class="product-recommendation-img" style="background-image:url(images/prod-rec-1.jpeg)"></div>
+                        <p class="product-recommendation-details">Female face masks</p>
+                        <p class="product-recommendation-details">CAD $8.99</p>
+                    </div>
+                    <div class=product-recommendation-img-wrapper>
+                        <div class="product-recommendation-img" style="background-image:url(images/prod-rec-2.jpeg)"></div>
+                        <p class="product-recommendation-details">Male face masks</p>
+                        <p class="product-recommendation-details">CAD $8.99</p>
+                    </div>
+                </div>
+            <div class=footer-wrapper>
+                <div class=footer-text>
+                    <p>&#169; 2020 Thuy T. </p>
+                </div>
+            </div>
+        </div>
+    <script>
+/*-------------------------SEARCH BAR------------------------*/
+        function showHint(str) {
+            
+            var xhttp;
+                if (str.length == 0) { 
+                    document.getElementById("search-result").innerHTML = "";
+                    return;
+                }
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("search-result").innerHTML=this.response;
+                    }
+                };
+            xhttp.open("GET", "gethint.php?q="+str, true);
+            xhttp.send();  
+        }
+/*-------------------------COLOR SELECTION------------------------*/
+
+function selectColor(size){
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {   
+                        var result= this.response;
+                        colors=result.split(" ");
+                        var x = document.getElementById("color-select");
+                        while(x.length>0){
+                                x.remove(0);
+                            }
+                
+                        for(let i=0;i<colors.length;i++){ 
+                            var option = document.createElement("option");
+                            option.text=colors[i];
+                            x.add(option);        
+                        }
+                    }
+                };
+                xhttp.open("GET", "colors.php?c="+size, true);
+                xhttp.send();  
+            }
+            
+/*-------------------------PRODUCT PHOTOS------------------------*/
+        var pic = "pic1";
+
+        function toTop(newTop) {
+
+            domTop = document.getElementById(pic).style;
+            domNew = document.getElementById(newTop).style;
+
+            domTop.zIndex = "0";
+            domNew.zIndex = "1";
+            pic = newTop;
+        }
+
+
+/*-------------------------CART------------------------*/
+    let products=[{
+                name:'Face Mask',
+                tag:'facemask',
+                price:16,
+                inCart:0,
+                color:"",
+                size:""
+            }];
+
+    let carts=document.querySelectorAll(".atb-button");
+        
+            for (let i=0; i < carts.length;i++){
+                carts[i].addEventListener('click',()=>{
+                    products[i].inCart=document.getElementById("quantity").value;
+                    cartNumbers(products[i]);
+                    totalCost(products[i]);
+                    setItems(products[i]);
+                })
+            }
+
+
+    function cartNumbers(product){
+            
+        let productNumbers=localStorage.getItem('cartNumbers');
+            productNumbers=parseInt(productNumbers);
+                if(productNumbers){
+                    localStorage.setItem('cartNumbers',productNumbers+parseInt(product.inCart));
+                    document.querySelector('.cart span').textContent=productNumbers+parseInt(product.inCart);
+                }
+                else{
+                    localStorage.setItem('cartNumbers',parseInt(product.inCart));
+                    document.querySelector('.cart span').textContent=parseInt(product.inCart)}
+            }
+
+            function onLoadCartNumbers(){
+                let productNumbers=localStorage.getItem('cartNumbers');
+                if(productNumbers){
+                    document.querySelector('.cart span').textContent=productNumbers;
+                }
+            }
+
+             function totalCost(product){
+                //console.log("The product price is", product.price);
+                let cartCost = localStorage.getItem('totalCost');
+
+                //console.log("My cartCost is", cartCost);
+                //console.log(typeof cartCost);
+                if (cartCost !=null){
+                    cartCost=parseInt(cartCost);
+                    localStorage.setItem("totalCost", cartCost + product.price*product.inCart);
+
+                }else{
+                    localStorage.setItem("totalCost", product.price*product.inCart);
+                }
+            }
+
+             function setItems(product){
+                let cartItems = localStorage.getItem('productsInCart');
+
+                if (cartItems== null){
+                    cartItems = {[product.tag]: product}
+                    cartItems[product.tag].inCart=
+                    parseInt(product.inCart);
+                    cartItems[product.tag].color=document.getElementById("color-select").value;
+                    cartItems[product.tag].size=document.getElementById("size-btn").value;
+                }
+                
+                else{
+                    cartItems = JSON.parse(cartItems);
+                    if(cartItems[product.tag] == undefined){
+                        cartItems={
+                            ...cartItems,
+                            [product.tag]:product
+                        }
+                    }
+                    cartItems[product.tag].inCart=parseInt(cartItems[product.tag].inCart)+parseInt(product.inCart)
+                    cartItems[product.tag].color=document.getElementById("color-select").value;
+                    cartItems[product.tag].size=document.getElementById("size-btn").value;
+                    ;
+                }
+                    
+                
+                localStorage.setItem("productsInCart",JSON.stringify(cartItems));
+            }
+
+         onLoadCartNumbers();
+        </script>
+    </body>
+</html>

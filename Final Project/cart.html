@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <link rel="stylesheet" href="styles2.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+    </head>
+    <body>
+        <div class=a-page>
+            <div class=nav-bar>
+                <div class=nav-belt>
+                    <div class=nav-left>
+                        <img src="images/logo/Abercrombie-and-Fitch.png" alt="Display Error">
+                    </div>
+                    <div class=nav-fill>
+                        <form action="">
+                        
+                            <input type="search" id="search-bar" name="search-bar" placeholder="Search..." onkeyup="">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+
+                        </form>
+                    </div>
+                    <div class=nav-right >
+                        <div class="nav-cart-count-container">
+                            <div class="cart">
+                                    <a href="cart.html">
+                                    <i class="fa fa-shopping-bag" aria-hidden="true" name="basket">Cart <span>0</span></i>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class=nav-main>
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="index.html">Home</a>
+                        </div>
+                    </div>
+
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="about.html">About</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-fill">
+                        <div class=nav-link-wrapper>
+                            <a href="index2.html">Products</a>
+                        </div>
+                    </div>
+
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="contact-us.html">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <div class=nav-fill>
+                        <div class=nav-link-wrapper>
+                            <a href="login.html">Log In</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="products-container">
+                <div class="product-header">
+                    <h5 class="product-title">PRODUCT</h5>
+                    <h5 class="price">PRICE</h5>
+                    <h5 class="quantity">QUANTITY</h5>
+                    <h5 class="total">TOTAL</h5>
+                </div>
+                
+                <div class="products">
+                    
+                </div>
+                <div class="basketTotalContainer">
+                    
+                </div>
+            </div>
+
+        </div>
+        <script>
+            $(document).ready(function() {
+                displayCart();
+                onLoadCartNumbers();
+            });
+
+            function displayCart(){
+                    let cartItems = localStorage.getItem("productsInCart");
+                    cartItems = JSON.parse(cartItems);
+                    let productContainer = document.querySelector(".products")
+                    let cartCost = localStorage.getItem('totalCost');
+                    //console.log(cartItems);
+
+                    if(cartItems && productContainer){
+                        productContainer.innerHTML="";
+                        Object.values(cartItems).map(item =>{
+                            productContainer.innerHTML+= `
+                        <div class="product" >
+                            <p>${item.name}--</p>
+             
+                            <p>${item.size}--</p>
+                            
+                            <p>${item.color}</p>
+                        </div>
+                    
+                        <div class="price">$${item.price},00</div>
+                        <div class="quantity">
+                            <span>${item.inCart}</span>
+                        </div>
+                        <div class="total">
+                            $${item.inCart * item.price},00
+                        </div>
+                            `;
+                    });  
+                        let total = document.querySelector(".basketTotalContainer")
+                        total.innerHTML+=`
+                        <div class="basketTotalContainer">
+                            <h5 class="basketTotalTitle">Basket Total</h4>
+                            <h5 class="basketTotal">$${cartCost},00</h4>
+                            </div>
+                `;}
+            };
+
+            function onLoadCartNumbers(){
+                let productNumbers=localStorage.getItem('cartNumbers');
+                if(productNumbers){
+                    document.querySelector('.cart span').textContent=productNumbers;
+                }
+            }
+            
+
+
+        </script>
+    </body>
+</html>

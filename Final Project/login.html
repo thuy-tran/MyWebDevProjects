@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <head lang="en">
+        <link rel="stylesheet" href="styles1.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+</head>
+
+<body >
+  <div class="container">
+    <div class="nav-bar">
+      <div class=nav-belt>
+        <div class=nav-left>
+          <img src="images/logo/Abercrombie-and-Fitch.png" alt="Display Error">
+        </div>
+        <div class=nav-right >
+          <div class=nav-link-wrapper style="color: #253746;">
+                <a href="index2.html" style="color: #253746; font-family:Ariel;">SHOP PRODUCTS</a>
+                <span class="arrow"><i class="fa fa-caret-right"></i></span>
+          </div>
+        </div>
+      </div>
+    <div class=nav-main>
+        <div class=nav-fill>
+            <div class=nav-link-wrapper>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+
+        <div class=nav-fill>
+          <div class=nav-link-wrapper>
+            <a href="about.html">About</a>
+          </div>
+        </div>
+
+        <div class="nav-fill">
+          <div class=nav-link-wrapper>
+            <a href="index2.html">Products</a>
+          </div>
+        </div>
+
+        <div class=nav-fill>
+          <div class=nav-link-wrapper>
+            <a href="contact-us.html">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="nav-fill  active-nav-link">
+          <div class=nav-link-wrapper>
+            <a href="login.html">Log In</a>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="login-page">
+      <div class="form">
+        <form action="" class="register-form">
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name">
+          <input type="text" placeholder="Email">
+          <input type="password" placeholder="Password">
+          <button type="submit" name="create_account">Create Account</button>
+          <p class="message">Already Registered? <a href="#">Login</a></p>
+        </form>
+
+        <form action="" class="login-form">
+          <input type="text" placeholder="Email" id="email">
+          <input type="password" placeholder="Password" id="password">
+          <button type="submit" id="login">login</button>
+          <p class="message">Not Registered? <a href="#"> Register</a></p>
+        </form>
+      </div>
+
+    </div>      
+  </div>
+<script>
+
+  function checkEmail(e){
+    if (e==""){
+      alert("Please fill in the Email");
+      $("#email").focus();
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  function checkPassword(pw){
+    // at least start with upper case, has a combination of at least one number, one lowercase
+    // at least six characters
+    var correct_form= /^(?=.*[A-Z]).(?=.*\d)(?=.*[a-z]).{6,20}$/;
+    var pos = pw.search(correct_form);
+
+    if (pw ==""){
+      alert("Please fill in the password");
+      $("#password").focus();
+      return false;
+    }
+
+    if(pos == 0) 
+    { 
+      return true;
+    }
+
+    else{
+      alert("Incorrect password format. Please re-enter");
+      return false;
+    }  
+  }
+
+  function validate(email,pwd) {
+    var xhr;
+    xhr= new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var result = this.responseText;
+      if (result==pwd){
+        window.location.replace("http://localhost:8080/Final%20Project/index2.html");
+      }
+      else
+        alert("Invalid Email/Password!");  
+    }
+  }
+  xhr.open("GET", "email-pwd.php?email=" + email, true);
+  xhr.send();
+};
+
+  $(document).ready(function() {
+    $("form").submit(function(){
+      var pw = $("#password").val();
+      var email = $("#email").val();
+
+      checkEmail(email);
+      checkPassword(pw);
+      validate(email,pw);
+    });
+});
+
+$('.message a').click(function(){
+    $('form').animate({height:"toggle",opacity:"toggle"},"fast");
+  });
+
+  </script>
+</body>
+</html>
+
